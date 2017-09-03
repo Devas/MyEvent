@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile('org.springframework.boot:spring-boot-starter')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile 'com.google.apis:google-api-services-books:v1-rev57-1.19.0'
+    compile 'com.google.apis:google-api-services-calendar:v3-rev87-1.19.0'
+    compile 'com.google.apis:google-api-services-drive:v2-rev135-1.19.0'
+    compile 'com.google.apis:google-api-services-oauth2:v2-rev75-1.19.0'
+    compile 'com.google.apis:google-api-services-plus:v1-rev137-1.19.0'
+    compile 'com.google.apis:google-api-services-sheets:v4-rev473-1.22.0'
+
+    compile 'com.google.http-client:google-http-client:1.19.0'
+    compile 'com.google.http-client:google-http-client-jackson2:1.19.0'
+    compile 'com.google.oauth-client:google-oauth-client-jetty:1.19.0'
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
